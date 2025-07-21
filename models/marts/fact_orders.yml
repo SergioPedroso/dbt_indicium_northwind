@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: fact_orders 
+    description: This table contains order itens information. 
+
+    columns:
+      - name: order_id
+        description: "order identifier."
+        tests:
+          - not_null
+
+      - name: product_id
+        description: "product identifier."
+        tests:
+          - not_null
+        
+      - name: quantity
+        description: "order quantity."
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: "price of a product unit."
+        tests:
+          - not_null
+
+      - name: discount
+        description: "percentual discount applied."
+        tests:
+          - not_null
+
+      - name: revenue
+        description: "Total revenue per order -> quantity * unit_price * (1 - discount)."
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: "customer identifier."
+        tests:
+          - not_null
+
+      - name: employee_id
+        description: "employee identifier."
+        tests:
+          - not_null
+
+      - name: date_id
+        description: "date identifier."
+        tests:
+          - not_null
+
+      - name: order_date
+        description: "date that the order has been made."
+        tests:
+          - not_null
+
+      - name: freight
+        description: "order freight cost."
+        tests:
+          - not_null

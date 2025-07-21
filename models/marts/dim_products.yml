@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: dim_products 
+    description: This table contains information about products. 
+
+    columns:
+      - name: product_id
+        description: "Product identifier."
+        tests:
+          - unique
+          - not_null
+
+      - name: product_name
+        description: "Product name."
+        tests:
+          - not_null
+
+      - name: unit_price
+        description: "Product unit price."
+        tests:
+          - not_null
+
+      - name: is_discontinued
+        description: "Flag for products that has been discontinued (1 = True, 0 = False)."
+        tests:
+          - not_null
+
+      - name: category_name
+        description: "Product category name."
+        tests:
+          - not_null
+        
+      - name: supplier_name
+        description: "Supplier company name."
+        tests:
+          - not_null
+
+      - name: supplier_city
+        description: "Supplier city."
+        tests:
+          - not_null
+
+      - name: supplier_country
+        description: "Supplier country."
+        tests:
+          - not_null

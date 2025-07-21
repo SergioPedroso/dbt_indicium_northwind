@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_customer_churn
+    description: This table contains the customer churn classification. 
+
+    columns:
+      - name: customer_id
+        description: "Customer identifier."
+        tests:
+          - unique
+          - not_null
+
+      - name: customer_name
+        description: "Name of customer."
+        tests:
+          - not_null
+
+      - name: last_order_date
+        description: "Date of last order."
+        tests:
+          - not_null
+
+      - name: months_since_last_order
+        description: "Number of months since last order."
+        tests:
+          - not_null
+
+      - name: is_churn
+        description: "Churn flag (True = churn, False = not churn)."
+        tests:
+          - not_null

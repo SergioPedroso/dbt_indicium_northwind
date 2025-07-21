@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_shippers 
+    description: This table contains information about shippers. 
+
+    columns:
+      - name: shipper_id
+        description: "shipper identifier."
+        tests:
+          - unique
+          - not_null
+
+      - name: shipper_name
+        description: "shipper company name."
+        tests:
+          - not_null

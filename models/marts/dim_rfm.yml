@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: dim_rfm
+    description: This table contains rfm analysis scores and segments. 
+
+    columns:
+      - name: customer_name
+        description: "Name of customer."
+        tests:
+          - unique
+          - not_null
+
+      - name: recency_days
+        description: "Days since last purchase."
+        tests:
+          - not_null
+
+      - name: frequency_orders
+        description: "Number of purchases."
+        tests:
+          - not_null
+
+      - name: monetary_value
+        description: "Total value spent by customer."
+        tests:
+          - not_null
+
+      - name: r_score
+        description: "Recency score."
+        tests:
+          - not_null
+        
+      - name: f_score
+        description: "Frequency score."
+        tests:
+          - not_null
+
+      - name: m_score
+        description: "Monetary score."
+        tests:
+          - not_null
+
+      - name: fm_score
+        description: "Frenquency and monetary average score."
+        tests:
+          - not_null
+
+      - name: rfm_segment
+        description: "Segments applied by rfm method."
+        tests:
+          - not_null
+
+      - name: r_fm_segment
+        description: "Segments applied by r_fm method."
+        tests:
+          - not_null

@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: dim_employees
+    description: This table contains information about employees. 
+
+    columns:
+      - name: employee_id
+        description: "Employee identifier."
+        tests:
+          - unique
+          - not_null
+
+      - name: employee_name
+        description: "Employee name."
+        tests:
+          - not_null
+
+      - name: employee_title
+        description: "Role title of the employee."
+        tests:
+          - not_null
+
+      - name: hire_date
+        description: "Hire date of the employee."
+        tests:
+          - not_null
+
+      - name: months_working
+        description: "Employee's working time in months"
+        tests:
+          - not_null
+        
+      - name: employee_city
+        description: "Employee's city."
+        tests:
+          - not_null
+
+      - name: employee_country
+        description: "Employee's country."
+        tests:
+          - not_null

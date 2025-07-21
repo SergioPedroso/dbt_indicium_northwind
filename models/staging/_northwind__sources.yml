@@ -1,0 +1,81 @@
+version: 2
+
+sources:
+  - name: northwind
+    database: integracao-sheets-445219
+    schema: raw_northwind
+    tables:
+      - name: categories
+        description: Product categories
+        columns:
+          - name: category_id
+            tests:
+              - not_null
+              - unique
+              
+      - name: customers
+        description: Customers who buy products from Northwind
+        columns:
+          - name: customer_id
+            tests:
+              - not_null
+              - unique
+
+      - name: employees
+        description: Northwind employees
+        columns:
+          - name: employee_id
+            tests:
+              - not_null
+              - unique
+          - name: title_of_courtesy
+            tests:
+            - accepted_values:
+                values: ['Mr.', 'Ms.', 'Mrs.', 'Dr.']
+
+      - name: order_details
+        description: Quantitative information about orders
+        columns:
+          - name: order_id
+            tests:
+              - not_null
+  
+      - name: orders
+        description: Qualitative and date related information about orders
+        columns:
+          - name: order_id
+            tests:
+              - not_null
+              - unique
+
+      - name: products
+        description: Product information
+        columns:
+          - name: product_id
+            tests:
+              - not_null
+              - unique
+      
+      - name: region
+        description: region description
+        columns:
+          - name: region_id
+            tests:
+              - not_null
+              - unique
+
+      - name: shippers
+        description: The details of the shippers who ship the products from the traders to the end-customers
+        columns:
+          - name: shipper_id
+            tests:
+              - not_null
+              - unique
+
+      - name: suppliers
+        description: Suppliers and vendors of Northwind
+        columns:
+          - name: supplier_id
+            tests:
+              - not_null
+              - unique

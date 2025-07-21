@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: This table contains information about customers. 
+
+    columns:
+      - name: customer_id
+        description: "customer identifier."
+        tests:
+          - unique
+          - not_null
+
+      - name: customer_name
+        description: "customer name."
+        tests:
+          - not_null
+
+      - name: customer_city
+        description: "customer city."
+        tests:
+          - not_null
+
+      - name: customer_country
+        description: "customer country."
+        tests:
+          - not_null
