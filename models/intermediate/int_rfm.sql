@@ -2,13 +2,34 @@ WITH orders AS (
 
     SELECT
         order_id,
-        customer_id,
         order_date,
-        SUM(revenue) AS order_amount
+        customer_id,
 
-    FROM {{ ref('fact_orders') }}
+    FROM {{ ref('stg_orders') }}
+
+)
+
+, orders_details AS (
+    
+    SELECT
+        order_id,
+        quantity * unit_price * (1 - discount) AS revenue
+
+    FROM {{ ref('stg_order_details') }}
+
+)
+
+, orders_enriched AS (
+
+    SELECT
+        orders.order_id,
+        orders.customer_id,
+        SUM(orders_details.revenue) AS order_amount, 
+        orders.order_date
+
+    FROM orders
+    LEFT JOIN orders_details USING (order_id)
     GROUP BY order_id, customer_id, order_date
-
 )
 
 , rfm_base AS (
@@ -19,7 +40,7 @@ WITH orders AS (
         COUNT(order_id) AS frequency_orders, -- (Frequency) orders volume
         SUM(order_amount) AS monetary_value -- (Value) value spent
 
-    FROM orders
+    FROM orders_enriched
     GROUP BY customer_id
 
 )
